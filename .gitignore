@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+
+# TypeScript
+dist/
+*.tsbuildinfo
+
+# Visual Studio Code
+.vscode/
+
+# Other
+.DS_Store
