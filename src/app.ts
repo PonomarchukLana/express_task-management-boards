@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
+//app.get('/', function (req, res) {
+//  res.send('Hello World!');
+//});
 app.use('/tasks', tasksRouter);
 
 app.listen(PORT, function () {
