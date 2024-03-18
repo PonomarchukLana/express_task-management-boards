@@ -24,9 +24,9 @@ export const taskList = async (req: Request, res: Response): Promise<void> => {
     const data = await Tasks.findAll();
     res.status(200).send(data);
   } catch (err) {
-    res.sendStatus(500).json({
-      message: err instanceof Error ? err.message : 'error',
-    });
+    //res.sendStatus(500).json({
+    //  message: err instanceof Error ? err.message : 'error',
+    //});
   }
 };
 
