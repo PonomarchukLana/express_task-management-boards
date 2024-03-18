@@ -11,9 +11,9 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
       description,
       status,
     });
-    res.status(201).send(data);
+    res.status(201).json(data);
   } catch (err) {
-    res.sendStatus(501).json({
+    res.status(501).json({
       message: err instanceof Error ? err.message : 'error',
     });
   }
@@ -22,11 +22,11 @@ export const createTask = async (req: Request, res: Response): Promise<void> => 
 export const taskList = async (req: Request, res: Response): Promise<void> => {
   try {
     const data = await Tasks.findAll();
-    res.status(200).send(data);
+    res.status(200).json(data);
   } catch (err) {
-    //res.sendStatus(500).json({
-    //  message: err instanceof Error ? err.message : 'error',
-    //});
+    res.status(500).json({
+      message: err instanceof Error ? err.message : 'error',
+    });
   }
 };
 
@@ -39,9 +39,9 @@ export const getTaskById = async (req: Request, res: Response): Promise<void> =>
         id: id,
       },
     });
-    res.status(200).send(data);
+    res.status(200).json(data);
   } catch (err) {
-    res.sendStatus(500).json({
+    res.status(500).json({
       message: err instanceof Error ? err.message : 'error',
     });
   }
@@ -59,7 +59,7 @@ export const updateTask = async (req: Request, res: Response): Promise<void> => 
     });
     const updatedData = await Tasks.findByPk(id);
 
-    res.status(200).send(updatedData);
+    res.status(200).json(updatedData);
   } catch (err) {
     res.sendStatus(501).json({
       message: err instanceof Error ? err.message : 'error',
@@ -76,9 +76,9 @@ export const deleteTask = async (req: Request, res: Response): Promise<void> => 
         id: id,
       },
     });
-    res.status(200).send({ id: id });
+    res.status(200).json({ id: id });
   } catch (err) {
-    res.sendStatus(501).json({
+    res.status(501).json({
       message: err instanceof Error ? err.message : 'error',
     });
   }
