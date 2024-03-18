@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Tasks.init({
     id: DataTypes.INTEGER,
+    index: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.STRING,
     status: DataTypes.STRING

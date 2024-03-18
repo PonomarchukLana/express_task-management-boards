@@ -16,11 +16,11 @@ export const sequelize = new Sequelize(DB_URL, {
   dialectOptions: {
     ssl: {
       require: true,
-      rejectUnauthorized: false
-    }
-  }
+      rejectUnauthorized: false,
+    },
+  },
 });
 
 export const Tasks = sequelize.define('Tasks', tasks, {
-  tableName: 'Tasks'
+  tableName: 'Tasks',
 });

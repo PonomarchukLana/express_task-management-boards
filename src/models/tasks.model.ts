@@ -8,6 +8,11 @@ export const tasks = {
     primaryKey: true,
   },
 
+  index: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
+
   title: {
     type: DataTypes.STRING,
     allowNull: false,

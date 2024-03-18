@@ -2,10 +2,11 @@ import { type Request, type Response } from 'express';
 import { Tasks } from '../db.js';
 
 export const createTask = async (req: Request, res: Response): Promise<void> => {
-  const { title, description, status } = req.body;
+  const { index, title, description, status } = req.body;
 
   try {
     const data = await Tasks.create({
+      index,
       title,
       description,
       status,
@@ -75,9 +76,7 @@ export const deleteTask = async (req: Request, res: Response): Promise<void> => 
         id: id,
       },
     });
-    res.status(204).json({
-      message: 'Success',
-    });
+    res.status(200).send({ id: id });
   } catch (err) {
     res.sendStatus(501).json({
       message: err instanceof Error ? err.message : 'error',
