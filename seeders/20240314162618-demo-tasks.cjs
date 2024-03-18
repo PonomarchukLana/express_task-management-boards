@@ -6,6 +6,7 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Tasks', [{
       id: 1,
+      index: 0,
       title: 'first task',
       description: 'this is first task',
       status: 'todo',
